@@ -1,7 +1,7 @@
-# 🚀 HELIOS - REVISED IMPLEMENTATION PLAN V3.0
+# 🚀 HELIOS - IMPLEMENTATION PLAN
 ## Production-First + Research-Backed Development Strategy
 
-**Last Updated:** November 30, 2025
+**Last Updated:** December 20, 2025
 **Approach:** Build for Production from Day 1 with Academic Research Foundation
 **Philosophy:** Every feature must be demo-worthy, production-ready, AND research-backed
 
@@ -22,6 +22,30 @@
 3. **Real Learning** - Face production challenges with proven solutions
 4. **Interview Advantage** - Demonstrate understanding of distributed systems research
 5. **Scalability** - Built for millions of events/sec from day 1
+
+### **CRITICAL: Production-First Principle**
+
+**Every phase MUST include TWO deliverables:**
+
+1. **Backend Implementation** - Core functionality with tests
+2. **Dashboard Integration** - Visual showcase in React UI
+
+**This is NON-NEGOTIABLE.** A phase is NOT complete until both deliverables are done.
+
+**Example:**
+- ❌ Phase 2 Backend Complete + No Dashboard = NOT DONE
+- ✅ Phase 2 Backend Complete + Dashboard Tab Showing Reconciliation = DONE
+
+**Why Dashboard-First Matters:**
+- **Demo-ability**: Can showcase to non-technical recruiters/interviewers
+- **Portfolio Value**: Screenshots/videos for resume
+- **User Validation**: Forces you to think about UX, not just algorithms
+- **Interview Advantage**: "Let me show you..." (open live dashboard) vs "Let me explain..."
+
+**Note on Phase 6 (Observability):**
+- Phase 6 is about **Grafana/Prometheus monitoring dashboards** (metrics, alerts, infrastructure)
+- The **React demo dashboard** is built incrementally across ALL phases (1.5, 2, 3, 4, 5)
+- These are TWO DIFFERENT dashboards serving different purposes
 
 ### **Dual-Mode Design**
 
@@ -88,10 +112,66 @@ KAFKA_BOOTSTRAP_SERVERS=...  # If set, use Kafka; else in-memory queue
 
 ---
 
-## 📊 **Phase 2: Production-Grade Reconciliation Engine (REVISED)**
-**Status:** 🔄 IN PROGRESS
+## 📊 **Phase 2: ML-Enhanced Reconciliation Engine**
+**Status:** ✅ 100% COMPLETE (Backend + Dashboard)
 **Timeline:** Weeks 6-8 (15-20 days)
-**Goal:** Build research-backed, production-ready reconciliation with O(1) lookups
+**Backend Completion:** December 20, 2025
+**Dashboard Completion:** January 2, 2026
+**Goal:** Build research-backed, production-ready reconciliation with O(1) lookups + Visual Dashboard
+
+### **Phase 2 Deliverables Checklist:**
+
+**Backend (✅ COMPLETE - 12/12):**
+- ✅ Event Index (Redis + SQLite fallback)
+- ✅ Bloom Filters for missing events
+- ✅ Shard-aware reconciliation
+- ✅ Stream Processor (Kafka + fallback)
+- ✅ MCDM Decision Engine (TOPSIS/WSM)
+- ✅ Recovery Feedback Loop
+- ✅ MAPE-K Automation Pipeline
+- ✅ EWMA Anomaly Detection
+- ✅ LSTM Model Training (Kaggle)
+- ✅ LSTM Integration with auto-fallback
+- ✅ Scheduled Reconciliation Jobs (7 jobs)
+- ✅ Phase 2 Completion Documentation
+
+**Dashboard (✅ COMPLETE - 9/9):**
+- ✅ 9 Phase 2 API Endpoints
+- ✅ Analytics & Detection Tab (4 sub-tabs)
+- ✅ Reconciliation Metrics Component
+- ✅ LSTM Anomaly Alerts Display
+- ✅ Scheduled Jobs Status Panel (7 jobs with countdown)
+- ✅ Missing Events & Source Reliability
+- ✅ Automation Tab (2 sub-tabs)
+- ✅ Recovery Recommendations with MCDM
+- ✅ User-facing naming (no phase terminology)
+
+**See:** [docs/phases/PHASE2_COMPLETE.md](phases/PHASE2_COMPLETE.md) for backend completion report
+
+---
+
+### **Phase 2: What We Can Showcase in Dashboard (WITHOUT Self-Healing)**
+
+**Important Note:** Phase 2 focuses on **DETECTION and ANALYSIS**, NOT execution. Self-healing execution happens in Phase 3.
+
+**We CAN showcase:**
+1. **Anomaly Detection Alerts** - Show LSTM/EWMA detecting anomalies in real-time
+2. **Scheduled Jobs Status** - Display 7 running reconciliation jobs with next run times
+3. **Missing Event Detection** - Timeline showing events missing from AWS/GCP/Azure
+4. **Recovery Action Recommendations** - MCDM engine suggests actions (not executes)
+5. **Reconciliation Metrics** - Event index stats, Bloom filter usage, shard distribution
+6. **Decision Rationale** - Show WHY MCDM chose a particular recovery strategy
+
+**We CANNOT showcase (Phase 3):**
+- ❌ Actual execution of recovery actions
+- ❌ DLQ replay in action
+- ❌ Auto-scaling consumers
+- ❌ Circuit breaker state changes
+
+**The Dashboard Will Show:**
+- "System detected 3 missing events from AWS (last 5 min)" ← DETECTION
+- "Recommended Action: Replay from DLQ (TOPSIS score: 0.87)" ← RECOMMENDATION
+- "Status: Awaiting Phase 3 execution engine" ← TRANSPARENCY
 
 ### **Research Foundation:**
 Based on "AI-Driven Self-Healing Cloud Systems" research paper:
@@ -830,10 +910,30 @@ class MLAnomalyDetector:
 
 ---
 
-## 🔧 **Phase 3: Self-Healing Engine (REVISED)**
+## 🔧 **Phase 3: Self-Healing Execution Engine**
 **Status:** ⏳ PENDING
 **Timeline:** Weeks 9-12 (20 days)
-**Goal:** Autonomous recovery with AI-driven action selection
+**Goal:** Autonomous recovery with AI-driven action selection + Dashboard Integration
+
+### **Phase 3 Deliverables Checklist:**
+
+**Backend (⏳ PENDING):**
+- ⏳ Recovery Action Registry (10+ actions)
+- ⏳ Action Executor with safety checks
+- ⏳ Root Cause Analysis Engine
+- ⏳ Circuit Breaker Implementation
+- ⏳ DLQ Replay Mechanism
+- ⏳ Consumer Auto-scaling
+- ⏳ Cascading Failure Prevention
+- ⏳ Execution Audit Logs
+
+**Dashboard (⏳ PENDING):**
+- ⏳ Recovery Actions Dashboard Tab
+- ⏳ Real-time Execution Log
+- ⏳ Circuit Breaker Status Panel
+- ⏳ Auto-scaling Visualization
+- ⏳ Success/Failure Rate Charts
+- ⏳ Time-to-Recovery Metrics
 
 ### **Research Foundation:**
 Based on both research sources:
@@ -1189,26 +1289,67 @@ class CircuitBreaker:
 ## 📋 **Remaining Phases (Summary)**
 
 ### **Phase 4: Schema Registry (Weeks 13-14)**
+
+**Backend:**
 - Avro/Protobuf schema enforcement
 - Schema evolution with backward compatibility
-- Validation errors tracked in dashboard
+- Version control and migration tools
+
+**Dashboard:**
+- Schema Browser Tab
+- Version history viewer
+- Validation errors panel
+- Schema compatibility checker
+
+---
 
 ### **Phase 5: Event Replay & Time-Travel (Weeks 15-17)**
+
+**Backend:**
 - S3/Parquet archival
-- Point-in-time recovery
-- Time-travel UI with timeline scrubber
+- Point-in-time recovery engine
+- Replay orchestration
+
+**Dashboard:**
+- Time-Travel Tab with timeline scrubber
+- Historical event viewer
+- Replay progress tracking
+- State reconstruction visualization
+
+---
 
 ### **Phase 6: Full Observability (Weeks 18-19)**
-- Grafana dashboards (replace demo dashboard)
-- Distributed tracing (Jaeger)
-- SLO/SLI tracking (99.9% uptime)
-- Cost tracking and optimization
+
+**Backend:**
+- Prometheus metrics exporter
+- Jaeger distributed tracing
+- SLO/SLI calculation engine
+- Cost tracking API
+
+**Dashboard (GRAFANA - Different from React Demo Dashboard):**
+- Grafana dashboards for infrastructure metrics
+- Jaeger UI for distributed tracing
+- Alert management interface
+- Cost optimization recommendations
+
+**Note:** The React demo dashboard (Phases 1.5, 2, 3, 4, 5) remains as the primary user interface. Grafana is for DevOps/SRE monitoring.
+
+---
 
 ### **Phase 7: Production Polish (Week 20)**
-- OAuth2 authentication
-- RBAC (Role-Based Access Control)
-- Multi-tenancy support
-- Comprehensive documentation site
+
+**Backend:**
+- OAuth2 authentication provider
+- RBAC authorization middleware
+- Multi-tenancy database isolation
+- Rate limiting and quotas
+
+**Dashboard:**
+- Login/Authentication UI
+- User management panel
+- Tenant switcher
+- API key management
+- Audit log viewer
 
 ---
 

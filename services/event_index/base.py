@@ -114,6 +114,16 @@ class EventIndexBackend(ABC):
         """
         pass
 
+    @abstractmethod
+    def get_stats(self) -> Dict[str, any]:
+        """
+        Get statistics about the event index.
+
+        Returns:
+            Dictionary with stats (backend, total_events, avg_lookup_ms, by_source)
+        """
+        pass
+
 
 class EventMetadata:
     """Event metadata structure."""

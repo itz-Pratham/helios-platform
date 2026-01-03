@@ -1,4 +1,6 @@
+# ============================================
 # Python
+# ============================================
 __pycache__/
 *.py[cod]
 *$py.class
@@ -25,58 +27,208 @@ MANIFEST
 venv/
 env/
 ENV/
-.venv
+.venv/
+.conda/
 
-# IDE
+# ============================================
+# IDE & Editors
+# ============================================
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
 .DS_Store
+*.sublime-*
+.project
+.pydevproject
+.settings/
 
-# Environment variables
+# ============================================
+# Environment & Secrets
+# ============================================
 .env
 .env.local
 .env.*.local
+.env.production
+.env.development
+*.pem
+*.key
+credentials.json
+gcp-credentials.json
+*.p12
+secrets/
 
-# Logs
+# ============================================
+# Logs & Temporary Files
+# ============================================
 *.log
 logs/
+*.tmp
+*.bak
+*.swp
+*.csv
+*.pid
 
+# ============================================
 # Database
+# ============================================
 *.db
 *.sqlite
 *.sqlite3
+data/*.db
+data/*.sqlite
+*.db-journal
+*.db-wal
+*.db-shm
 
+# ============================================
 # Docker
+# ============================================
 docker-compose.override.yml
+.dockerignore
 
+# ============================================
 # Testing
+# ============================================
 .coverage
 .pytest_cache/
 htmlcov/
 .tox/
 .hypothesis/
+coverage/
+.cache/
+nosetests.xml
+coverage.xml
+*.cover
 
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# mypy
+# ============================================
+# Python Type Checking & Linting
+# ============================================
 .mypy_cache/
 .dmypy.json
 dmypy.json
+.ruff_cache/
+.pytype/
 
-# Credentials
-*.pem
-*.key
-credentials.json
-gcp-credentials.json
+# ============================================
+# Jupyter Notebook
+# ============================================
+.ipynb_checkpoints
+*.ipynb_checkpoints/
 
-# Temporary files
-*.tmp
-*.bak
-*.swp
+# ============================================
+# Node.js / Frontend
+# ============================================
+node_modules/
+dist/
+build/
+.pnpm-store/
+.turbo/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-debug.log
+.next/
+out/
+.nuxt/
+.cache/
+.parcel-cache/
+.output/
 
-# Extra files
+# ============================================
+# ML Training Artifacts (Kaggle-specific)
+# ============================================
+# Only keep the production-ready files, ignore training scripts
+ml/generate_synthetic_dataset.py
+ml/kaggle_debug_nan.py
+ml/kaggle_lstm_training_multi_gpu.py
+ml/kaggle_lstm_training.py
+ml/*.ipynb  # Jupyter notebooks for training
+
+# ML Model Versions (keep only active)
+ml_models/best_lstm_model.h5  # Old H5 format
+ml_models/*.onnx
+ml_models/*.pb
+ml_models/*.tflite
+ml_models/checkpoints/
+ml_models/runs/
+ml_models/logs/
+
+# ============================================
+# Reference Materials (Not for Production)
+# ============================================
 sources_references/
+docs/archive/
+NOTES.md
+TODO.md
+
+# ============================================
+# OS-Specific
+# ============================================
+.DS_Store
+Thumbs.db
+desktop.ini
+*.icloud
+
+# ============================================
+# Cloud Provider Specific
+# ============================================
+# AWS
+.aws/
+*.pem
+
+# GCP
+gcp-service-account.json
+application_default_credentials.json
+
+# Azure
+.azure/
+
+# ============================================
+# Monitoring & Observability
+# ============================================
+prometheus_data/
+grafana_data/
+jaeger_data/
+
+# ============================================
+# Kafka & Message Queue
+# ============================================
+kafka_data/
+kafka_logs/
+zookeeper_data/
+
+# ============================================
+# Redis
+# ============================================
+dump.rdb
+appendonly.aof
+redis_data/
+
+# ============================================
+# PostgreSQL
+# ============================================
+postgres_data/
+pg_data/
+
+# ============================================
+# Terraform (if used for infra)
+# ============================================
+.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfvars
+.terraform.lock.hcl
+
+# ============================================
+# Keep These Important Files
+# ============================================
+# (Git will track these despite matching patterns above)
+!.env.example
+!.github/
+!ml/README_KAGGLE.md
+!ml_models/anomaly_detector.keras
+!ml_models/model_config.json
+!ml_models/scaler.pkl

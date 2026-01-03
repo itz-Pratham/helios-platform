@@ -109,6 +109,10 @@ app.include_router(websocket_router.router, prefix="/api/v1", tags=["WebSocket &
 from api.routes import reconciliation
 app.include_router(reconciliation.router, tags=["Reconciliation"])
 
+# Include Phase 2 metrics endpoints
+from api.routes import phase2_metrics
+app.include_router(phase2_metrics.router, tags=["Phase 2 Metrics"])
+
 
 @app.get("/")
 async def root():

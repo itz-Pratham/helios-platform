@@ -1,0 +1,35 @@
+{
+  "window_size": 60,
+  "num_features": 8,
+  "feature_names": [
+    "missing_event_rate",
+    "duplicate_rate",
+    "inconsistent_rate",
+    "aws_gcp_latency_ms",
+    "aws_azure_latency_ms",
+    "gcp_azure_latency_ms",
+    "event_rate_per_minute",
+    "payload_size_variance"
+  ],
+  "threshold": 0.5,
+  "performance": {
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "auc": 1.0
+  },
+  "model_architecture": {
+    "lstm_1": 128,
+    "lstm_2": 64,
+    "dense": 32,
+    "total_params": 121665
+  },
+  "training_info": {
+    "epochs_trained": 3,
+    "batch_size": 256,
+    "learning_rate": 0.0001,
+    "optimizer": "Adam",
+    "early_stopping": true
+  }
+}
